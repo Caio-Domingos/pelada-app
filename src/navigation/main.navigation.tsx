@@ -7,6 +7,7 @@ import HomeScreen from '../screens/AuthPages/Home/Home.screen';
 import ProfileScreen from '../screens/AuthPages/Profile/Profile.screen';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/store';
+import RegisterScreen from '../screens/UnauthPages/Register/Register.screen';
 
 export default function MainNavigation({ ...props }) {
 	// Pegar valores do AuthSlicer
@@ -20,12 +21,22 @@ export default function MainNavigation({ ...props }) {
 			<MainStack.Navigator>
 				<MainStack.Screen
 					{...props}
+					name='Register'
+					component={RegisterScreen}
+					options={{ headerShown: false }}
+				/>
+				<MainStack.Screen
+					{...props}
 					name='Intro'
 					component={IntroScreen}
 					options={{ headerShown: false }}
 				/>
-				<MainStack.Screen {...props} name='Login' component={LoginScreen} />
-				{/* <Stack.Screen {...props} name='Home' component={RegisterScreen} /> */}
+				<MainStack.Screen
+					{...props}
+					name='Login'
+					component={LoginScreen}
+					options={{ headerShown: false }}
+				/>
 			</MainStack.Navigator>
 		);
 	};
@@ -34,7 +45,6 @@ export default function MainNavigation({ ...props }) {
 			<MainTabs.Navigator>
 				<MainTabs.Screen {...props} name='Home' component={HomeScreen} />
 				<MainTabs.Screen {...props} name='Profile' component={ProfileScreen} />
-				{/* <Tabs.Screen {...props} name='Home' component={RegisterScreen} /> */}
 			</MainTabs.Navigator>
 		);
 	};
