@@ -1,31 +1,35 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
+import {
+	NavigationTheme,
+	ThemeProp,
+} from 'react-native-paper/lib/typescript/types';
+import {
+	darkTheme,
+	lightTheme,
+	navigationDarkTheme,
+	navigationLightTheme,
+} from '../../contants/theme/Colors.contant';
+import { fontConfig } from './../../contants/theme/Font.constant';
 
 interface ThemeState {
-	theme: any;
-	colors: {
-		screenBG: string;
-		textColor: string;
-		primary: string;
-		card: string;
+	theme: ThemeProp;
+	navigationTheme: NavigationTheme;
+	mode: 'dark' | 'light';
+}
+
+function applyFontsToTheme(theme: any) {
+	return {
+		...theme,
+		fonts: {
+			...fontConfig,
+		},
 	};
 }
 
-export const darkTheme = {
-	screenBG: 'transparent',
-	textColor: '#FB3338',
-	primary: '#FB3338',
-	card: '#272C29',
-};
-export const lightTheme = {
-	screenBG: 'transparent',
-	textColor: '#FB3338',
-	primary: '#FB3338',
-	card: '#272C29',
-};
-
 const initialState: ThemeState = {
-	theme: 'dark',
-	colors: { ...darkTheme },
+	theme: applyFontsToTheme(darkTheme),
+	navigationTheme: navigationDarkTheme,
+	mode: 'dark',
 };
 
 // Thunk para mudar as cores do tema
@@ -34,16 +38,28 @@ export const themeSlice = createSlice({
 	initialState,
 	reducers: {
 		reset: (state: ThemeState) => {
-			state.theme = 'dark';
-			state.colors = { ...darkTheme };
+			state.theme = applyFontsToTheme(darkTheme);
 		},
 		toggleTheme: (state: ThemeState) => {
-			state.theme = state.theme === 'dark' ? 'light' : 'dark';
-			state.colors = state.theme === 'dark' ? darkTheme : lightTheme;
-			// Colors.setScheme(state.theme);
+			state.mode = state.mode === 'dark' ? 'light' : 'dark';
+			state.theme =
+				state.mode === 'dark'
+					? applyFontsToTheme(darkTheme)
+					: applyFontsToTheme(lightTheme);
+			state.navigationTheme =
+				state.mode === 'dark' ? navigationDarkTheme : navigationLightTheme;
+		},
+		setTheme: (state: ThemeState, action) => {
+			state.mode = action.payload;
+			state.theme =
+				action.payload === 'dark'
+					? applyFontsToTheme(darkTheme)
+					: applyFontsToTheme(lightTheme);
+			state.navigationTheme =
+				action.payload === 'dark' ? navigationDarkTheme : navigationLightTheme;
 		},
 	},
 });
 
-export const { reset, toggleTheme } = themeSlice.actions;
+export const { reset, toggleTheme, setTheme } = themeSlice.actions;
 export default themeSlice.reducer;
