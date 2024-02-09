@@ -17,6 +17,12 @@ import {
 	navigationDarkTheme,
 	navigationLightTheme,
 } from '../constants/theme/Colors.contant';
+import {
+	SafeAreaInsetsContext,
+	useSafeAreaInsets,
+} from 'react-native-safe-area-context';
+import { View } from 'react-native';
+import { useEffect } from 'react';
 
 const { LightTheme, DarkTheme } = adaptNavigationTheme({
 	reactNavigationLight: navigationLightTheme as any,
@@ -36,6 +42,12 @@ export default function MainNavigation({ ...props }) {
 			<MainStack.Navigator>
 				<MainStack.Screen
 					{...props}
+					name='Intro'
+					component={IntroScreen}
+					options={{ headerShown: false }}
+				/>
+				<MainStack.Screen
+					{...props}
 					name='Login'
 					component={LoginScreen}
 					options={{ headerShown: false }}
@@ -44,12 +56,6 @@ export default function MainNavigation({ ...props }) {
 					{...props}
 					name='Register'
 					component={RegisterScreen}
-					options={{ headerShown: false }}
-				/>
-				<MainStack.Screen
-					{...props}
-					name='Intro'
-					component={IntroScreen}
 					options={{ headerShown: false }}
 				/>
 			</MainStack.Navigator>
@@ -64,9 +70,20 @@ export default function MainNavigation({ ...props }) {
 		);
 	};
 
+	const insets = useSafeAreaInsets();
+
 	return (
 		<NavigationContainer theme={navigationTheme}>
-			{user ? createAuthorizedStack() : createUnauthorizedStack()}
+			{/* <SafeAreaInsetsContext.Consumer>
+				{(insets) => (
+					<View style={{ paddingTop: insets?.top }}>
+						{user ? createAuthorizedStack() : createUnauthorizedStack()}
+					</View>
+				)}
+			</SafeAreaInsetsContext.Consumer> */}
+			<View style={{ paddingTop: insets.top, flex: 1 }}>
+				{user ? createAuthorizedStack() : createUnauthorizedStack()}
+			</View>
 		</NavigationContainer>
 	);
 }

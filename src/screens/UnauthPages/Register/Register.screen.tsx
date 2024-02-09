@@ -4,6 +4,7 @@ import { RegisterStyle } from './Register.style';
 import { useFormik } from 'formik';
 import React from 'react';
 import CustomTextInput from '../../../components/CustomTextInput';
+import HeaderUnauth from '../../../components/HeaderUnauth';
 
 export default function RegisterScreen({ navigation, ...props }: any) {
 	const theme = useTheme();
@@ -58,29 +59,8 @@ export default function RegisterScreen({ navigation, ...props }: any) {
 
 	return (
 		<View style={RegisterStyle.container}>
-			<View style={RegisterStyle.header}>
-				<Image source={require('../../../../assets/logo.svg')} />
-				<View style={RegisterStyle.headerTextContainer}>
-					<Text
-						variant='headlineLarge'
-						style={{
-							...RegisterStyle.headerTextTitle,
-							color: theme.colors.primary,
-						}}
-					>
-						Criticos
-					</Text>
-					<Text
-						variant='titleMedium'
-						style={{
-							...RegisterStyle.headerTextSubtitle,
-							color: theme.colors.onBackground,
-						}}
-					>
-						Peladínea
-					</Text>
-				</View>
-			</View>
+			<HeaderUnauth />
+
 			<View style={RegisterStyle.body}>
 				<CustomTextInput
 					label={'Email'}

@@ -10,14 +10,10 @@ import { Button, Text } from 'react-native-paper';
 export default function IntroScreen({ navigation, ...props }: any) {
 	const { theme } = useSelector((state: any) => state.theme);
 
-	useEffect(() => {
-		console.log('theme on intro', theme);
-	}, [theme]);
-
 	return (
 		<View style={IntroStyles.container}>
 			<View style={IntroStyles.headerContainer}>
-				<Image source={require('../../../../assets/logo.svg')}></Image>
+				<Image source={require('../../../../assets/logo.png')}></Image>
 				<View style={IntroStyles.headerTitleContent}>
 					<Text
 						variant='titleLarge'

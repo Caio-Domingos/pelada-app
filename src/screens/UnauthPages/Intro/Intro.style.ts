@@ -7,7 +7,7 @@ export const IntroStyles = StyleSheet.create({
 
 		alignItems: 'center',
 		justifyContent: 'space-between',
-		flexDirection: 'column',
+		// flexDirection: 'column',
 	},
 	headerContainer: {
 		alignItems: 'center',
@@ -15,7 +15,7 @@ export const IntroStyles = StyleSheet.create({
 		paddingVertical: 20,
 	},
 	headerTitleContent: {
-		flex: 1,
+		// flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
@@ -25,8 +25,8 @@ export const IntroStyles = StyleSheet.create({
 		textAlign: 'center',
 	},
 	headerSubtitle: {
-		fontSize: 16,
-		textAlign: 'center',
+		// fontSize: 16,
+		// textAlign: 'center',
 		letterSpacing: 6,
 		paddingLeft: 4,
 	},

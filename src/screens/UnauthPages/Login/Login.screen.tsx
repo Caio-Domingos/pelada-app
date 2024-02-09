@@ -7,6 +7,7 @@ import CustomTextInput from '../../../components/CustomTextInput';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../../store/slicers/auth.slicer';
 import { AppDispatch } from '../../../store/store';
+import HeaderUnauth from '../../../components/HeaderUnauth';
 
 export default function LoginScreen({ navigation, ...props }: any) {
 	const theme = useTheme();
@@ -55,32 +56,7 @@ export default function LoginScreen({ navigation, ...props }: any) {
 
 	return (
 		<View style={LoginStyle.container}>
-			<View style={LoginStyle.header}>
-				<Image
-					style={LoginStyle.headerImg}
-					source={require('../../../../assets/logo.svg')}
-				/>
-				<View style={LoginStyle.headerTextContainer}>
-					<Text
-						variant='headlineLarge'
-						style={{
-							...LoginStyle.headerTextTitle,
-							color: theme.colors.primary,
-						}}
-					>
-						Criticos
-					</Text>
-					<Text
-						variant='titleMedium'
-						style={{
-							...LoginStyle.headerTextSubtitle,
-							color: theme.colors.onBackground,
-						}}
-					>
-						Peladínea
-					</Text>
-				</View>
-			</View>
+			<HeaderUnauth />
 			<View style={LoginStyle.body}>
 				<CustomTextInput
 					label={'Email'}
@@ -113,9 +89,9 @@ export default function LoginScreen({ navigation, ...props }: any) {
 				<Button
 					mode='text'
 					textColor={theme.colors.onBackground}
-					onPress={() => navigation.navigate('Login')}
+					onPress={() => navigation.navigate('Register')}
 				>
-					Já tem conta? Faça login
+					Não tem uma conta? Cadastre-se
 				</Button>
 			</View>
 		</View>
