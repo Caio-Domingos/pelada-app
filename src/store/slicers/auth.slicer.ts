@@ -11,9 +11,15 @@ const initialState = {
 };
 
 // Thunk para login
-export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => {
+export const login = createAsyncThunk<
+	ReturnType<any>, // Add the missing type argument for ReturnType
+	{ email: string; password: string },
+	{
+		rejectValue: string;
+	}
+>('auth/login', async (user, thunkAPI) => {
 	try {
-		const authService = new AuthService(); 
+		const authService = new AuthService();
 		return await authService.login(user); // Implemente seu método de login aqui
 	} catch (error: any) {
 		const message =
@@ -23,18 +29,23 @@ export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => {
 		return thunkAPI.rejectWithValue(message);
 	}
 });
-export const logout = createAsyncThunk('auth/logout', async (user, thunkAPI) => {
-	try {
-		const authService = new AuthService(); 
-		return await authService.logout(user); // Implemente seu método de login aqui
-	} catch (error: any) {
-		const message =
-			(error.response && error.response.data && error.response.data.message) ||
-			error.message ||
-			error.toString();
-		return thunkAPI.rejectWithValue(message);
+export const logout = createAsyncThunk(
+	'auth/logout',
+	async (user, thunkAPI) => {
+		try {
+			const authService = new AuthService();
+			return await authService.logout(user); // Implemente seu método de login aqui
+		} catch (error: any) {
+			const message =
+				(error.response &&
+					error.response.data &&
+					error.response.data.message) ||
+				error.message ||
+				error.toString();
+			return thunkAPI.rejectWithValue(message);
+		}
 	}
-});
+);
 
 // O slice
 export const authSlice = createSlice({

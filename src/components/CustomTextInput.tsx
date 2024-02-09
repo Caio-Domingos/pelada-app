@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextField } from 'react-native-ui-lib';
+import { TextInput } from 'react-native-paper';
 
 interface CustomTextInputProps {
 	// Props with default value
@@ -7,38 +7,29 @@ interface CustomTextInputProps {
 	validate?: any[];
 	validationMessage?: string[];
 	// Props required
-	placeholder: string;
 
 	// Props optional
 	otherProps?: {
 		[key: string]: any;
 	};
-	styles?: {
-		color?: string;
-		labelColor?: string;
-		placeholderTextColor?: string;
-	};
 
+	label: string;
 	value: string;
-	onChangeText: (text: string) => void;
+	onChangeText: (e: string) => void;
 	onBlur: (field: any) => void;
+
+	required?: boolean;
 }
 
 const CustomTextInput = React.forwardRef(
 	(props: CustomTextInputProps, ref: any) => {
 		return (
-			<TextField
+			<TextInput
 				ref={ref}
-				placeholder={props.placeholder}
-				enableErrors={props.enableErrors || false}
-				validate={props.validate || []}
-				validationMessage={props.validationMessage || []}
+				label={props.label}
 				value={props.value}
 				onChangeText={props.onChangeText}
 				onBlur={props.onBlur}
-				color={props.styles?.color}
-				labelColor={props.styles?.labelColor}
-				placeholderTextColor={props.styles?.placeholderTextColor}
 				{...props.otherProps}
 			/>
 		);

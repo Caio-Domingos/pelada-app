@@ -8,8 +8,8 @@ import {
 	lightTheme,
 	navigationDarkTheme,
 	navigationLightTheme,
-} from '../../contants/theme/Colors.contant';
-import { fontConfig } from './../../contants/theme/Font.constant';
+} from '../../constants/theme/Colors.contant';
+import { fontConfig } from '../../constants/theme/Font.constant';
 
 interface ThemeState {
 	theme: ThemeProp;

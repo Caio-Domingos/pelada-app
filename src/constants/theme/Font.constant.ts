@@ -1,6 +1,26 @@
 import { DefaultTheme } from 'react-native-paper';
+import { MD3Typescale } from 'react-native-paper/lib/typescript/types';
 
-export const fontConfig = {
+interface FontConfig extends MD3Typescale {
+	regular: {
+		fontFamily: string;
+		fontWeight: string;
+	};
+	medium: {
+		fontFamily: string;
+		fontWeight: string;
+	};
+	light: {
+		fontFamily: string;
+		fontWeight: string;
+	};
+	thin: {
+		fontFamily: string;
+		fontWeight: string;
+	};
+}
+
+export const fontConfig: FontConfig = {
 	...DefaultTheme.fonts,
 	displayLarge: {
 		fontFamily: 'Inter_400Regular',

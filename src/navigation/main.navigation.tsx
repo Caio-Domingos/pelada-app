@@ -16,7 +16,7 @@ import { adaptNavigationTheme } from 'react-native-paper';
 import {
 	navigationDarkTheme,
 	navigationLightTheme,
-} from '../contants/theme/Colors.contant';
+} from '../constants/theme/Colors.contant';
 
 const { LightTheme, DarkTheme } = adaptNavigationTheme({
 	reactNavigationLight: navigationLightTheme as any,
@@ -36,8 +36,8 @@ export default function MainNavigation({ ...props }) {
 			<MainStack.Navigator>
 				<MainStack.Screen
 					{...props}
-					name='Intro'
-					component={IntroScreen}
+					name='Login'
+					component={LoginScreen}
 					options={{ headerShown: false }}
 				/>
 				<MainStack.Screen
@@ -48,8 +48,8 @@ export default function MainNavigation({ ...props }) {
 				/>
 				<MainStack.Screen
 					{...props}
-					name='Login'
-					component={LoginScreen}
+					name='Intro'
+					component={IntroScreen}
 					options={{ headerShown: false }}
 				/>
 			</MainStack.Navigator>
