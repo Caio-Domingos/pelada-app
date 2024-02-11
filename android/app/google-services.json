@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "256875324826",
+    "project_id": "criticos-pelada",
+    "storage_bucket": "criticos-pelada.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:256875324826:android:5259524ebfaaa064bf8623",
+        "android_client_info": {
+          "package_name": "com.thinkless.peladacriticos"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDo1x4dYO91NNdxIR93HmNudj8Ysg3V-x0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
