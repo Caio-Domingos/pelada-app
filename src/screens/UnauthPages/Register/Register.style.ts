@@ -1,6 +1,10 @@
 import { StyleSheet } from 'react-native';
 
 export const RegisterStyle = StyleSheet.create({
+	scrollView: {
+		display: 'flex',
+		flex: 1,
+	},
 	container: {
 		display: 'flex',
 		flex: 1,
@@ -36,8 +40,8 @@ export const RegisterStyle = StyleSheet.create({
 		justifyContent: 'flex-start',
 		alignItems: 'center',
 		flexDirection: 'column',
-        width: '100%',
-        paddingHorizontal: 16,
+		width: '100%',
+		paddingHorizontal: 16,
 	},
 	bodyInput: {
 		width: '100%',

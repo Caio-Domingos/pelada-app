@@ -30,6 +30,7 @@ const CustomTextInput = React.forwardRef(
 				value={props.value}
 				onChangeText={props.onChangeText}
 				onBlur={props.onBlur}
+				mode={'outlined'}
 				{...props.otherProps}
 			/>
 		);

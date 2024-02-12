@@ -47,10 +47,17 @@ export default function LoginScreen({ navigation, ...props }: any) {
 
 			console.log('Login');
 
-			const ret = await dispatch(
-				login({ email: values.email, password: values.password })
-			);
-			console.log('Ret:', ret);
+			try {
+				const ret = await dispatch(
+					login({ email: values.email, password: values.password })
+				);
+				console.log('Ret:', ret);
+			} catch (error) {
+				console.log('Error:', error);
+			} finally {
+				console.log('Finally');
+				formik.setSubmitting(false);
+			}
 		},
 	});
 
@@ -61,7 +68,7 @@ export default function LoginScreen({ navigation, ...props }: any) {
 				<CustomTextInput
 					label={'Email'}
 					value={formik.values.email}
-					onBlur={formik.handleBlur}
+					onBlur={formik.handleBlur('email')}
 					onChangeText={formik.handleChange('email')}
 					otherProps={{
 						style: { ...LoginStyle.bodyInput },
@@ -71,9 +78,10 @@ export default function LoginScreen({ navigation, ...props }: any) {
 					label={'Senha'}
 					onChangeText={formik.handleChange('password')}
 					value={formik.values.password}
-					onBlur={formik.handleBlur}
+					onBlur={formik.handleBlur('password')}
 					otherProps={{
 						style: { ...LoginStyle.bodyInput },
+						secureTextEntry: true,
 					}}
 				/>
 			</View>
