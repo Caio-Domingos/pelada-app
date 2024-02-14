@@ -53,7 +53,16 @@ export const login = createAsyncThunk<
 >('auth/login', async (user, thunkAPI) => {
 	try {
 		const authService = new AuthService();
-		return await authService.login(user);
+		const res = await authService.login(user);
+		console.log('res login', res);
+
+		const payload = {
+			uuid: res.user.uid,
+			email: res.user.email,
+			accesstoken: (res.user as any).accessToken
+		}
+
+		return payload
 	} catch (error: any) {
 		const message =
 			(error.response && error.response.data && error.response.data.message) ||
