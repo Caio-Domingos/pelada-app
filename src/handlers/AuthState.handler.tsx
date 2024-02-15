@@ -33,14 +33,12 @@ export default function AuthStateHandler({ ...props }) {
 					}
 
 					if (userFirestore.createdAt) {
-						console.log('UserFirestore.createdAt', userFirestore.createdAt);
 						userFirestore.createdAt = (userFirestore.createdAt as Timestamp)
 							.toDate()
 							.toISOString();
 					}
 
 					if (userFirestore.updatedAt) {
-						console.log('UserFirestore.updatedAt', userFirestore.updatedAt);
 						userFirestore.updatedAt = (userFirestore.updatedAt as Timestamp)
 							.toDate()
 							.toISOString();
@@ -50,7 +48,6 @@ export default function AuthStateHandler({ ...props }) {
 					return;
 				}
 
-				console.log('UserFirestore', userFirestore);
 				dispatch(setLogged(userFirestore));
 			} else {
 				// User is signed out
