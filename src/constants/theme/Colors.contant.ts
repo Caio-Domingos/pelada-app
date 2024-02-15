@@ -70,7 +70,7 @@ export const darkTheme = {
 		onPrimaryContainer: 'rgb(255, 218, 214)',
 		secondary: 'rgb(165, 200, 255)',
 		onSecondary: 'rgb(0, 49, 95)',
-		secondaryContainer: 'rgb(0, 71, 134)',
+		secondaryContainer: 'rgb(255, 71, 134)',
 		onSecondaryContainer: 'rgb(212, 227, 255)',
 		tertiary: 'rgb(106, 219, 174)',
 		onTertiary: 'rgb(0, 56, 39)',
@@ -110,11 +110,11 @@ export const darkTheme = {
 export const navigationDarkTheme = {
 	dark: true,
 	colors: {
-		primary: 'rgb(255, 179, 173)',
+		primary: 'rgb(251, 51, 56)',
 		background: 'rgb(32, 26, 25)',
 		card: 'rgb(32, 26, 25)',
 		text: 'rgb(237, 224, 222)',
 		border: 'rgb(160, 140, 138)',
-		notification: 'rgb(255, 180, 171)',
+		notification: 'rgb(251, 51, 56)',
 	},
 };

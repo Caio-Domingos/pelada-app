@@ -1,4 +1,5 @@
 import 'expo-dev-client';
+import 'react-native-gesture-handler';
 
 import { useEffect } from 'react';
 import { StyleSheet } from 'react-native';
@@ -21,7 +22,7 @@ export default function App() {
 	useEffect(() => {
 		if (getApps().length === 0) {
 			const cache = new CacheService();
-			cache.resetAll();
+			// cache.resetAll();
 			const app = initializeApp(firebaseConfig);
 			const auth = initializeAuth(app, {
 				persistence: getReactNativePersistence(ReactNativeAsyncStorage),

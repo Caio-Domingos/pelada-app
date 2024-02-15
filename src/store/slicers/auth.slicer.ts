@@ -1,9 +1,16 @@
+import { User } from './../../models/users/user.model';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { AuthService } from '../../services/authService.service';
 import { Timestamp } from 'firebase/firestore';
 
 // Estado inicial
-const initialState = {
+const initialState: {
+	user: User | null;
+	isError: boolean;
+	isSuccess: boolean;
+	isLoading: boolean;
+	message: string;
+} = {
 	user: null,
 	isError: false,
 	isSuccess: false,
@@ -20,22 +27,18 @@ export const register = createAsyncThunk<
 	}
 >('auth/register', async (user, thunkAPI) => {
 	try {
-		console.log('Thunk register - Initializer', user);
 		const authService = new AuthService();
 		const res = await authService.register(user);
 
 		if (res.createdAt) {
-			console.log('res.createdAt', res.createdAt);
 			res.createdAt = (res.createdAt as Date).toISOString();
 		}
 		if (res.updatedAt) {
-			console.log('res.updatedAt', res.updatedAt);
 			res.updatedAt = (res.updatedAt as Date).toISOString();
 		}
 
 		return res;
 	} catch (error: any) {
-		console.log('Error on register', error);
 		const message =
 			(error.response && error.response.data && error.response.data.message) ||
 			error.message ||
@@ -54,15 +57,14 @@ export const login = createAsyncThunk<
 	try {
 		const authService = new AuthService();
 		const res = await authService.login(user);
-		console.log('res login', res);
 
 		const payload = {
 			uuid: res.user.uid,
 			email: res.user.email,
-			accesstoken: (res.user as any).accessToken
-		}
+			accesstoken: (res.user as any).accessToken,
+		};
 
-		return payload
+		return payload;
 	} catch (error: any) {
 		const message =
 			(error.response && error.response.data && error.response.data.message) ||
