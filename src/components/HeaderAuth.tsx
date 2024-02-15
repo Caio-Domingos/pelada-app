@@ -6,47 +6,21 @@ import {
 	IconButton,
 	MD3Colors,
 	Text,
+	useTheme,
 } from 'react-native-paper';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/store';
 
 // Criar um array com 5 cores diferentes + seus contrastes que serâo usadas como fundo do meu imgRouded
-const colors = [
-	{
-		background: 'rgb(255, 255, 255)',
-		contrast: '#000000',
-	},
-	{
-		background: 'rgb(255, 215, 0)',
-		contrast: '#000000',
-	},
-	{
-		background: 'rgb(70, 130, 180)',
-		contrast: '#ffffff',
-	},
-	{
-		background: 'rgb(50, 205, 50)',
-		contrast: '#000000',
-	},
-	{
-		background: 'rgb(255, 160, 122)',
-		contrast: '#000000',
-	},
-];
 
 export default function HeaderAuth({ ...props }) {
-	const [randomColor, setRandomState] = useState({
-		background: '',
-		contrast: '',
-	});
+	const theme = useTheme();
 	const { user } = useSelector((state: RootState) => state.auth);
 	const [firstLetter, setFirstLetter] = useState('A');
 
 	useEffect(() => {
 		// console.log('HeaderAuth.tsx');
 		// Escolher uma cor aleatória do array
-		const rc = colors[Math.floor(Math.random() * colors.length)];
-		setRandomState(rc);
 	}, []);
 
 	useEffect(() => {
@@ -64,20 +38,14 @@ export default function HeaderAuth({ ...props }) {
 			>
 				<Avatar.Text
 					label={firstLetter}
-					size={50}
+					size={51}
 					style={{
-						backgroundColor: randomColor.background,
+						backgroundColor: theme.colors.primary,
 					}}
-					color='#000000'
+					color={theme.colors.onPrimary}
 				/>
 			</View>
 			<View style={styles.logoutContainer}>
-				{/* <IconButton
-					icon='logout'
-					iconColor={MD3Colors.error50}
-					size={30}
-					onPress={() => console.log('Pressed')}
-				/> */}
 				<Button
 					icon='logout'
 					mode='text'

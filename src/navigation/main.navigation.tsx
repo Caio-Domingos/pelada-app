@@ -50,7 +50,7 @@ export default function MainNavigation({ ...props }) {
 	useEffect(() => {
 		setNavigationTheme(createNavigationTheme(theme));
 
-		console.log('MainNavigation.tsx', navigationTheme);
+		// console.log('MainNavigation.tsx', navigationTheme);
 	}, [theme]);
 
 	const MainStack = createNativeStackNavigator();
@@ -88,19 +88,17 @@ export default function MainNavigation({ ...props }) {
 				shifting={true}
 				labeled={true}
 				initialRouteName='Peladas'
-				activeColor='#fb3338'
-				inactiveColor='#fff'
+				activeColor={theme.colors.onPrimary}
+				inactiveColor={theme.colors.outline}
 				barStyle={{
 					backgroundColor: theme.colors.background,
-
-					borderTopWidth: 1,
-					borderTopColor: theme.colors.primary,
+					borderTopWidth: .2,
+					borderTopColor: theme.colors.outline,
 				}}
 				screenOptions={{
 					// tabBarBadge: true,
 					tabBarAccessibilityLabel: 'Tab 1',
 				}}
-
 			>
 				<MainTabs.Screen
 					{...props}

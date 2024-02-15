@@ -5,10 +5,10 @@ import { Image, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../store/store';
 import { useEffect } from 'react';
-import { Button, Text } from 'react-native-paper';
+import { Button, Text, useTheme } from 'react-native-paper';
 
 export default function IntroScreen({ navigation, ...props }: any) {
-	const { theme } = useSelector((state: any) => state.theme);
+	const theme = useTheme();
 
 	return (
 		<View style={IntroStyles.container}>
