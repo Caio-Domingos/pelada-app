@@ -1,6 +1,12 @@
 import { MD3Theme } from 'react-native-paper';
 
-export const MD3LightTheme: MD3Theme = {
+export type MyTheme = MD3Theme & {
+	colors: {
+		card: string;
+	};
+};
+
+export const MD3LightTheme: MyTheme = {
 	dark: false,
 	roundness: 4,
 	version: 3,
@@ -30,6 +36,8 @@ export const MD3LightTheme: MD3Theme = {
 
 		background: 'rgba(255, 251, 254, 1)',
 		onBackground: 'rgba(28, 27, 31, 1)',
+
+		card: 'rgba(255,255,255, 1)',
 
 		error: 'rgba(179, 38, 30, 1)',
 		errorContainer: 'rgba(249, 222, 220, 1)',
@@ -168,7 +176,7 @@ export const MD3LightTheme: MD3Theme = {
 	animation: { scale: 1 },
 };
 
-export const MD3DarkTheme: MD3Theme = {
+export const MD3DarkTheme: MyTheme = {
 	dark: true,
 	roundness: 4,
 	version: 3,
@@ -198,6 +206,8 @@ export const MD3DarkTheme: MD3Theme = {
 		onBackground: 'rgb(237, 224, 222)',
 		surface: 'rgb(32, 26, 25)',
 		onSurface: 'rgb(237, 224, 222)',
+
+		card: 'rgb(61, 54, 54)',
 
 		surfaceVariant: 'rgb(83, 67, 66)',
 		onSurfaceVariant: 'rgb(216, 194, 191)',

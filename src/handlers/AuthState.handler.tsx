@@ -17,10 +17,10 @@ export default function AuthStateHandler({ ...props }) {
 				// User is signed in
 				const uid = user.uid;
 				console.log('User is signed in! UID:', uid);
-				console.log(
-					'Cache All Keys and Values',
-					CacheService.seeAllKeysAndValues()
-				);
+				// console.log(
+				// 	'Cache All Keys and Values',
+				// 	CacheService.seeAllKeysAndValues()
+				// );
 
 				const userService = new UserService();
 

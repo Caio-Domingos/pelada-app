@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 import {
 	Avatar,
 	Button,
@@ -45,6 +45,13 @@ export default function HeaderAuth({ ...props }) {
 					color={theme.colors.onPrimary}
 				/>
 			</View>
+			<View
+				style={styles.middleContainer}
+				onTouchEnd={() => console.log('Pressed')}
+				// TODO: Home screen navigation
+			>
+				<Image style={styles.logo} source={require('../../assets/logo.png')} />
+			</View>
 			<View style={styles.logoutContainer}>
 				<Button
 					icon='logout'
@@ -71,8 +78,19 @@ const styles = StyleSheet.create({
 		paddingEnd: 10,
 	},
 	profileContainer: {
-		flex: 1,
+		width: 70,
 	},
+	middleContainer: {
+		flex: 1,
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
+	logo: {
+		width: 70,
+		height: 70,
+	},
+
 	logoutContainer: {
 		// width: 120,
 	},
