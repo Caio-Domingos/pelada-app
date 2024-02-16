@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 import { FAB } from 'react-native-paper';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-export default function HomeScreen({ ...props }) {
+export default function HomeScreen({ navigation, ...props }: any) {
 	const [peladas, setPeladas] = useState([
 		{
 			title: '9ª Peladinea Críticos',
@@ -45,7 +45,7 @@ export default function HomeScreen({ ...props }) {
 					</View>
 				</KeyboardAwareScrollView>
 				<View style={HomeStyles.addMoreContainer}>
-					<FAB icon='plus' mode='flat' onPress={() => console.log('Pressed')} />
+					<FAB icon='plus' mode='flat' onPress={() => navigation.navigate('HomeDetails')} />
 				</View>
 			</View>
 		</View>
