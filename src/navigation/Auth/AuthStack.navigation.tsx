@@ -16,20 +16,6 @@ export default function AuthStackNavigation({ ...props }) {
 
 	const HomeStack = createNativeStackNavigator();
 	const HomeTabGroupComponent = () => {
-		const navigation = useNavigation<any>();
-
-		useEffect(() => {
-			console.log('HomeTabGroupComponent', navigation);
-		}, []);
-
-		const onPressHome = () => {
-			navigation.navigate('Home');
-		};
-
-		const onPressDetails = () => {
-			navigation.navigate('HomeDetails');
-		};
-
 		return (
 			<HomeStack.Navigator>
 				<HomeStack.Screen
@@ -42,18 +28,23 @@ export default function AuthStackNavigation({ ...props }) {
 					{...props}
 					name='HomeDetails'
 					component={HomeDetailsScreen}
-					options={{ headerShown: false }}
+					options={{
+						header: ({ navigation, route, options, back }) => (
+							<HeaderAuthStackBackButton
+								navigation={navigation}
+								route={route}
+								options={{ ...options }}
+								back={back}
+							/>
+						),
+					}}
 				/>
 			</HomeStack.Navigator>
 		);
 	};
 
 	const MainTabComponent = () => {
-        const navigation = useNavigation<any>();
-
-        useEffect(() => {
-			console.log('MainTabComponent', navigation);
-		}, [navigation]);
+		const navigation = useNavigation<any>();
 
 		return (
 			<AuthTabs.Navigator
@@ -77,11 +68,11 @@ export default function AuthStackNavigation({ ...props }) {
 						tabBarIcon: 'soccer',
 					}}
 					listeners={{
-                        tabPress: (e) => {
-                            e.preventDefault();
-                            navigation.navigate('Home');
-                        }
-                    }}
+						tabPress: (e) => {
+							e.preventDefault();
+							navigation.navigate('Home');
+						},
+					}}
 				/>
 				<AuthTabs.Screen
 					{...props}
