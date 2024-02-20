@@ -1,7 +1,7 @@
 import React from 'react';
 import { TextInput } from 'react-native-paper';
 
-interface CustomTextInputProps {
+export interface CustomTextInputProps {
 	// Props with default value
 	enableErrors?: boolean;
 	validate?: any[];
@@ -14,7 +14,7 @@ interface CustomTextInputProps {
 	};
 
 	label: string;
-	value: string;
+	value: string | number;
 	onChangeText: (e: string) => void;
 	onBlur: (field: any) => void;
 
@@ -27,7 +27,7 @@ const CustomTextInput = React.forwardRef(
 			<TextInput
 				ref={ref}
 				label={props.label}
-				value={props.value}
+				value={`${props.value}`}
 				onChangeText={props.onChangeText}
 				onBlur={props.onBlur}
 				mode={'outlined'}

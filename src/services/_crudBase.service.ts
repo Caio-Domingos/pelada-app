@@ -11,12 +11,13 @@ import {
 	WithFieldValue,
 	doc,
 	setDoc,
+	Timestamp,
 } from 'firebase/firestore';
 
 interface isDocument extends DocumentData {
 	id?: string;
-	createdAt?: Date;
-	updatedAt?: Date;
+	createdAt?: Date | Timestamp | string;
+	updatedAt?: Date | Timestamp | string;
 }
 
 export class CrudBaseService<T extends isDocument> {

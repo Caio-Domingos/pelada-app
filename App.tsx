@@ -7,6 +7,16 @@ import { Provider } from 'react-redux';
 import { getApps, initializeApp } from 'firebase/app';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { pt, registerTranslation } from 'react-native-paper-dates';
+registerTranslation('pt', pt);
+import { setDefaultOptions, Locale } from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR';
+type PtBRType = typeof import('date-fns/locale/pt-BR');
+setDefaultOptions({
+	locale: ptBR as Locale & PtBRType,
+});
+
+// Intl.DateTimeFormat
 
 import ThemeController from './Theme';
 import { store } from './src/store/store';
@@ -20,6 +30,7 @@ import { CacheService } from './src/services/cache.service';
 
 export default function App() {
 	useEffect(() => {
+		// console.log('App.tsx mounted', Localization);
 		if (getApps().length === 0) {
 			const cache = new CacheService();
 			// cache.resetAll();

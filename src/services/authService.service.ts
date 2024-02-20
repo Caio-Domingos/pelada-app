@@ -68,12 +68,23 @@ export class AuthService {
 		return res;
 	}
 
-	login(user: { email: string; password: string }) {
+	async login(user: { email: string; password: string }) {
 		console.log('login with entries => ', user);
 
 		const { email, password } = user;
 		try {
-			return signInWithEmailAndPassword(this.auth, email, password);
+			const userAuth = await signInWithEmailAndPassword(
+				this.auth,
+				email,
+				password
+			);
+			const user = userAuth.user;
+
+			console.log('usuario logado! => ', user);
+
+			const userFirestore = await this.userService.getOne(user.uid);
+
+			return userFirestore;
 		} catch (error: any) {
 			const errorCode = error.code;
 			const errorMessage = ErrorCodesMessages[errorCode];

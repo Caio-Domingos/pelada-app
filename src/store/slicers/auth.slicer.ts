@@ -58,13 +58,14 @@ export const login = createAsyncThunk<
 		const authService = new AuthService();
 		const res = await authService.login(user);
 
-		const payload = {
-			uuid: res.user.uid,
-			email: res.user.email,
-			accesstoken: (res.user as any).accessToken,
-		};
+		if (res!.createdAt) {
+			res!.createdAt = (res!.createdAt as Date).toISOString();
+		}
+		if (res!.updatedAt) {
+			res!.updatedAt = (res!.updatedAt as Date).toISOString();
+		}
 
-		return payload;
+		return res;
 	} catch (error: any) {
 		const message =
 			(error.response && error.response.data && error.response.data.message) ||
@@ -120,13 +121,10 @@ export const authSlice = createSlice({
 			.addCase(login.fulfilled, (state, action) => {
 				state.isLoading = false;
 				state.isSuccess = true;
-
-				// state.user = action.payload as any;
 			})
 			.addCase(login.rejected, (state, action) => {
 				state.isLoading = false;
 				state.isError = true;
-				// state.message = action.payload as any;
 				state.user = null;
 			})
 			.addCase(register.pending, (state) => {
@@ -139,6 +137,7 @@ export const authSlice = createSlice({
 			.addCase(register.rejected, (state, action) => {
 				state.isLoading = false;
 				state.isError = true;
+				state.user = null;
 			});
 	},
 });
