@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ProfileScreen from '../../screens/AuthPages/Profile/Profile.screen';
-import HeaderAuthStackBackButton from '../../components/HeaderAuthStackBackButton';
+import HeaderAuthStackBackButton from '../../components/headers/HeaderAuthStackBackButton';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { useTheme } from 'react-native-paper';
 import HomeScreen from '../../screens/AuthPages/Home/Home.screen';

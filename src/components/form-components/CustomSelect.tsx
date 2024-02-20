@@ -1,5 +1,5 @@
 import React, { forwardRef, useEffect, useState } from 'react';
-import { PeladaTimeBlocks } from '../models/peladas/pelada.model';
+import { PeladaTimeBlocks } from '../../models/peladas/pelada.model';
 import {
 	Keyboard,
 	Platform,

@@ -12,11 +12,11 @@ import {
 	PeladaTimeBlocks,
 } from '../../../../models/peladas/pelada.model';
 import { PeladaTimeBlocksOptions } from '../../../../models/peladas/pelada.dto';
-import SubHeaderFormComponent from '../../../../components/SubHeaderForm';
-import CustomTextInput from '../../../../components/CustomTextInput';
-import CustomTimePickerInput from '../../../../components/TimePickerInput';
-import CustomDatePickerInput from '../../../../components/DatePickerInput';
-import CustomSelect from '../../../../components/CustomSelect';
+import SubHeaderFormComponent from '../../../../components/form-components/SubHeaderForm';
+import CustomTextInput from '../../../../components/form-components/CustomTextInput';
+import CustomTimePickerInput from '../../../../components/form-components/TimePickerInput';
+import CustomDatePickerInput from '../../../../components/form-components/DatePickerInput';
+import CustomSelect from '../../../../components/form-components/CustomSelect';
 import { PeladaService } from '../../../../services/pelada.service';
 
 export default function HomeDetailsScreen({ ...props }) {

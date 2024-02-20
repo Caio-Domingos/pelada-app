@@ -18,7 +18,7 @@ import RegisterScreen from '../screens/UnauthPages/Register/Register.screen';
 import HomeScreen from '../screens/AuthPages/Home/Home.screen';
 import ProfileScreen from '../screens/AuthPages/Profile/Profile.screen';
 
-import HeaderAuthStackBackButton from '../components/HeaderAuthStackBackButton';
+import HeaderAuthStackBackButton from '../components/headers/HeaderAuthStackBackButton';
 import { RootState } from '../store/store';
 import {
 	MD3Theme,

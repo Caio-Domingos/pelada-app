@@ -3,11 +3,11 @@ import { Button, Text, TextInput, useTheme } from 'react-native-paper';
 import { LoginStyle } from './Login.style';
 import { useFormik } from 'formik';
 import React from 'react';
-import CustomTextInput from '../../../components/CustomTextInput';
+import CustomTextInput from '../../../components/form-components/CustomTextInput';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../../store/slicers/auth.slicer';
 import { AppDispatch } from '../../../store/store';
-import HeaderUnauth from '../../../components/HeaderUnauth';
+import HeaderUnauth from '../../../components/headers/HeaderUnauth';
 
 export default function LoginScreen({ navigation, ...props }: any) {
 	const theme = useTheme();

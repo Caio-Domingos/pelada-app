@@ -1,5 +1,5 @@
 import { StyleSheet, View } from 'react-native';
-import { RegisterStyle } from '../screens/UnauthPages/Register/Register.style';
+import { RegisterStyle } from '../../screens/UnauthPages/Register/Register.style';
 import { Image } from 'expo-image';
 import { Text, useTheme } from 'react-native-paper';
 
@@ -10,7 +10,7 @@ export default function HeaderUnauth({ ...props }: any) {
 		<View style={style.header}>
 			<Image
 				style={style.headerImg}
-				source={require('../../assets/logo.png')}
+				source={require('../../../assets/logo.png')}
 			/>
 			<View style={style.headerTextContainer}>
 				<Text

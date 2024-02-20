@@ -31,7 +31,7 @@ export default function HeaderAuthStackBackButton({
 				onTouchEnd={() => console.log('Pressed')}
 				// TODO: Home screen navigation
 			>
-				<Image style={styles.logo} source={require('../../assets/logo.png')} />
+				<Image style={styles.logo} source={require('../../../assets/logo.png')} />
 			</View>
 			<View style={styles.logoutContainer}>
 				<Button

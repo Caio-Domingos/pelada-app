@@ -3,8 +3,9 @@ import { combineSlices, configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { authSlice } from './slicers/auth.slicer';
 import { themeSlice } from './slicers/theme.slicer';
+import { snackbarSlice } from './slicers/snackbar.slicer';
 
-const rootReducer = combineSlices(authSlice, themeSlice);
+const rootReducer = combineSlices(authSlice, themeSlice, snackbarSlice);
 export type RootState = ReturnType<typeof rootReducer>;
 
 export const makeStore = (preloadedState?: Partial<RootState>) => {

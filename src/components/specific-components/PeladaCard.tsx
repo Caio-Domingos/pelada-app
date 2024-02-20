@@ -1,8 +1,12 @@
 import { StyleSheet, View } from 'react-native';
 import { Button, Icon, IconButton, Text, useTheme } from 'react-native-paper';
-import { MyTheme } from '../constants/theme/Theme.contant';
+import { MyTheme } from '../../constants/theme/Theme.contant';
+import { Pelada } from '../../models/peladas/pelada.model';
 
-export default function PeladaCard({ ...props }) {
+// TODO: import Clipboard from expo
+import * as Clipboard from 'expo-clipboard';
+
+export default function PeladaCard({ pelada, ...props }: { pelada: Pelada }) {
 	const theme: MyTheme = useTheme();
 
 	return (
@@ -15,34 +19,37 @@ export default function PeladaCard({ ...props }) {
 		>
 			<View style={{ ...styles.cardInfo }}>
 				<Icon source='soccer' color={theme.colors.primary} size={22} />
-				<Text style={styles.cardInfoText}>{props.pelada.title}</Text>
+				<Text style={styles.cardInfoText}>{pelada.name}</Text>
 			</View>
 			<View style={{ ...styles.cardInfo }}>
 				<Icon source='map-marker' color={theme.colors.primary} size={22} />
-				<Text style={styles.cardInfoText}>{props.pelada.location}</Text>
+				<Text style={styles.cardInfoText}>{pelada.address}</Text>
 				<View style={styles.cardInfoSecondIcon}>
 					<IconButton
 						icon='content-copy'
 						size={22}
-						onPress={() => console.log('Pressed')}
+						onPress={async () => {
+							await Clipboard.setStringAsync(pelada.address);
+							console.log('Copied to clipboard');
+						}}
 					/>
 				</View>
 			</View>
 			<View style={{ ...styles.cardInfo }}>
 				<Icon source='calendar' color={theme.colors.primary} size={22} />
-				<Text style={styles.cardInfoText}>{props.pelada.date}</Text>
+				<Text style={styles.cardInfoText}>{pelada.date as string}</Text>
 			</View>
 			<View style={{ ...styles.cardInfo }}>
 				<Icon source='account-group' color={theme.colors.primary} size={22} />
 				<Text style={styles.cardInfoText}>
-					{props.pelada.players}/{props.pelada.limitPlayers}
+					{pelada.players.length}/{pelada.playerLimit}
 				</Text>
 			</View>
 			<View style={styles.cardFooterContent}>
 				<Button
 					style={styles.cardFooterButton}
 					mode='contained'
-                    buttonColor={theme.colors.primaryContainer}
+					buttonColor={theme.colors.primaryContainer}
 					onPress={() => console.log('Pressed')}
 				>
 					Entrar na pelada

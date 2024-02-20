@@ -9,7 +9,7 @@ import {
 	useTheme,
 } from 'react-native-paper';
 import { useSelector } from 'react-redux';
-import { RootState } from '../store/store';
+import { RootState } from '../../store/store';
 
 // Criar um array com 5 cores diferentes + seus contrastes que serâo usadas como fundo do meu imgRouded
 
@@ -50,7 +50,7 @@ export default function HeaderAuth({ ...props }) {
 				onTouchEnd={() => console.log('Pressed')}
 				// TODO: Home screen navigation
 			>
-				<Image style={styles.logo} source={require('../../assets/logo.png')} />
+				<Image style={styles.logo} source={require('../../../assets/logo.png')} />
 			</View>
 			<View style={styles.logoutContainer}>
 				<Button

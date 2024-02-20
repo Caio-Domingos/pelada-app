@@ -1,10 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
 import { IntroStyles } from './Intro.style';
-import CustomButton from '../../../components/Button';
 import { Image, View } from 'react-native';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../../store/store';
-import { useEffect } from 'react';
 import { Button, Text, useTheme } from 'react-native-paper';
 
 export default function IntroScreen({ navigation, ...props }: any) {

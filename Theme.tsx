@@ -47,11 +47,18 @@ export default function ThemeController({ ...props }) {
 
 	useEffect(() => {
 		setTheme(mode === 'dark' ? darkTheme : lightTheme);
+		console.log('mode', mode);
 	}, [mode]);
+
+	useEffect(() => {
+		console.log('fontsLoaded', fontsLoaded);
+		console.log('fontError', fontError);
+	}, [fontsLoaded, fontError]);
 
 	const onLayoutRootView = useCallback(async () => {
 		console.log('onLayoutRootView', fontsLoaded, fontError);
 		if (fontsLoaded || fontError) {
+			console.log('onLayoutRootView', fontsLoaded, fontError);
 			await SplashScreen.hideAsync();
 		}
 	}, [fontsLoaded, fontError]);
