@@ -3,7 +3,7 @@ import { Platform, Text, View } from 'react-native';
 import { HomeStyles } from './Home.style';
 import HeaderAuth from '../../../components/headers/HeaderAuth';
 import { useEffect, useState } from 'react';
-import PeladaCard from '../../../components/specific-components/PeladaCard';
+import PeladaCard from '../../../components/screen-components/PeladaCard';
 import { RootState } from '../../../store/store';
 import { useSelector } from 'react-redux';
 import { FAB } from 'react-native-paper';
@@ -53,6 +53,11 @@ export default function HomeScreen({ navigation, ...props }: any) {
 		fetchData();
 	}, []);
 
+	const handleCardOnPress = (pelada: Pelada) => {
+		console.log('Card Pressed - Home Screen!', pelada);
+		navigation.navigate('HomeDetails', { pelada_id: pelada.id });
+	};
+
 	return (
 		<View style={HomeStyles.container}>
 			<HeaderAuth navigation={props.navigation} />
@@ -66,7 +71,13 @@ export default function HomeScreen({ navigation, ...props }: any) {
 				>
 					<View style={HomeStyles.cardsContainer}>
 						{peladas.map((pelada, index) => {
-							return <PeladaCard key={index} pelada={pelada} />;
+							return (
+								<PeladaCard
+									key={index}
+									pelada={pelada}
+									handleCardOnPress={handleCardOnPress}
+								/>
+							);
 						})}
 					</View>
 				</KeyboardAwareScrollView>
@@ -74,7 +85,9 @@ export default function HomeScreen({ navigation, ...props }: any) {
 					<FAB
 						icon='plus'
 						mode='flat'
-						onPress={() => navigation.navigate('HomeDetails')}
+						onPress={() =>
+							navigation.navigate('HomeDetails', { pelada_id: null })
+						}
 					/>
 				</View>
 			</View>

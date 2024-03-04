@@ -1,0 +1,70 @@
+☐ Manter pelada
+    ☐ Criar pelada
+        ☐ Permissões
+            ☐ Bloqueado para jogador
+            ☐ Liberado para organizador
+            ☐ Liberado para adm
+        ☐ Copiar dados de pelada antiga (3 Ultimas)
+    ☐ Ver pelada
+        ☐ Ver todas as peladas (Abertas e fechadas)
+            ☐ Permissões
+                ☐ Bloqueado para jogador
+                ☐ BLoqueado para organizador
+                ☐ Liberado para adm
+        ☐ Ver peladas abertas + Pelada que organizou
+            ☐ Permissões
+                ☐ Bloqueado para jogador
+                ☐ Liberado para organizador
+                ☐ Liberado para adm
+        ☐ Ver peladas abertas + Pelada que jogou
+            ☐ Permissões
+                ☐ Liberado para jogador
+                ☐ Liberado para organizador
+                ☐ Liberado para adm
+        ☐ Entrar/sair na/da pelada
+            ☐ Botão no card da pelada
+                ☐ Permissões
+                    ☐ Liberado para jogador
+                    ☐ Liberado para organizador
+                    ☐ Liberado para adm
+        ☐ Ir GPS
+            ☐ Botão no card da pelada
+                ☐ Permissões
+                    ☐ Liberado para jogador
+                    ☐ Liberado para organizador
+                    ☐ Liberado para adm
+        ☐ Editar pelada
+            ☐ Opções no card da pelada
+                ☐ Permissões
+                    ☐ Bloqueado para jogador
+                    ☐ Liberado para organizador
+                    ☐ Liberado para adm
+        ☐ Cancelar pelada
+            ☐ Opções no card da pelada
+                ☐ Permissões
+                    ☐ Bloqueado para jogador
+                    ☐ Liberado para organizador
+                    ☐ Liberado para adm
+        ☐ Iniciar pelada
+            ☐ Opções no card da pelada
+                ☐ Permissões
+                    ☐ Bloqueado para jogador
+                    ☐ Liberado para organizador
+                    ☐ Liberado para adm
+        ☐ Detalhes da pelada
+            ☐ Clique no card
+                ☐ Permissões
+                    ☐ Liberado para jogador
+                    ☐ Liberado para organizador
+                    ☐ Liberado para adm
+                ☐ Ver dados da pelada
+                ☐ Ver jogadores inscritos
+                ☐ Ver reserva de jogadores
+            ☐ Adicionar visitantes
+                ☐ Permissões
+                    ☐ Liberado para jogador
+                    ☐ Liberado para organizador
+                    ☐ Liberado para adm
+
+    
+            
