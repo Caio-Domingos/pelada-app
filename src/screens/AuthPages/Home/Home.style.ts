@@ -20,7 +20,9 @@ export const HomeStyles = StyleSheet.create({
 		marginTop: 20,
 		paddingHorizontal: 10,
 		paddingBottom: 70,
+		position: 'relative',
 	},
+
 	addMoreContainer: {
 		backgroundColor: 'transparent',
 		position: 'absolute',

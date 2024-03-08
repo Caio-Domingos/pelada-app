@@ -32,6 +32,14 @@ export default function HomeScreen({ navigation, ...props }: any) {
 	const [peladas, setPeladas] = useState<Pelada[]>([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const user = useSelector((state: RootState) => state.auth.user);
+	const [role, setRole] = useState('');
+
+	useEffect(() => {
+		if (user) {
+			setRole(user.role);
+		}
+		console.log('role => ', role);
+	}, [user]);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -53,9 +61,13 @@ export default function HomeScreen({ navigation, ...props }: any) {
 		fetchData();
 	}, []);
 
-	const handleCardOnPress = (pelada: Pelada) => {
-		console.log('Card Pressed - Home Screen!', pelada);
+	const handleCardEdit = (pelada: Pelada) => {
+		console.log('Card Pressed - Edit - Home Screen!', pelada);
 		navigation.navigate('HomeDetails', { pelada_id: pelada.id });
+	};
+	const handleCardDelete = (pelada: Pelada) => {
+		console.log('Card Pressed - Delete - Home Screen!', pelada);
+		// TODO: Implement Delete Pelada Modal confirmation
 	};
 
 	return (
@@ -75,7 +87,8 @@ export default function HomeScreen({ navigation, ...props }: any) {
 								<PeladaCard
 									key={index}
 									pelada={pelada}
-									handleCardOnPress={handleCardOnPress}
+									handleCardEdit={handleCardEdit}
+									handleCardDelete={handleCardDelete}
 								/>
 							);
 						})}
